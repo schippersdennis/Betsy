@@ -43,8 +43,8 @@ class ProductTag(peewee.Model):
 
 class Transaction(peewee.Model):
     id = peewee.BigAutoField()
-    user_id = peewee.ForeignKeyField(User)
-    product_id = peewee.ForeignKeyField(Product)
+    user_id = peewee.ForeignKeyField(User, backref="get_user")
+    product_id = peewee.ForeignKeyField(Product, backref="get_product")
     quantity = peewee.IntegerField()
 
     class Meta:
